@@ -18,8 +18,8 @@ int cbinsearch(int *arr, int size, int value) {
       r = mid - 1;
     } else {
       l = mid + 1;
+      return result;
     }
-    return result;
   }
   return 0;
 }
