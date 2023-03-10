@@ -13,7 +13,7 @@ int cbinsearch(int *arr, int size, int value) {
         result++;
         i++;
       }
-      int i = middle - 1;
+      i = middle - 1;
       while ((arr[i] == value) && (l <= i)) {
         result++;
         i--;
