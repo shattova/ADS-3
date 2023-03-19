@@ -2,27 +2,23 @@
 
 int cbinsearch(int *arr, int size, int value) {
   int l = 0;
-  int r = 0;
+  int r = size - 1;
   int result = 0;
-  int middle;
   while (l <= r) {
-    middle = (l + r) / 2;
-    if (arr[middle] == value) {
-      int i = middle + 1;
-      while ((arr[i] == value) && (r >= i)) {
-        result++;
-        i++;
-      }
-      i = middle - 1;
-      while ((arr[i] == value) && (l <= i)) {
-        result++;
-        i--;
-      }
-    } else if (arr[middle] > value) {
+    int middle = (l + r) / 2;
+    if (arr[middle] > value) {
       r = middle - 1;
-    } else {
+    } else if (arr[middle] < value) {
       l = middle + 1;
+    } else {
+      for (int i = 1; arr[middle] == arr[middle - i]; i++) {
+        result++;
+      }
+      for (int i = 0; arr[middle] == arr[middle + i]; i++) {
+        result++;
+      }
+        return result;
+      }
     }
-  }
-  return result;
+  return 0;
 }
